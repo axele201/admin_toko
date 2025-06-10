@@ -26,25 +26,18 @@ function loadPage(page, title = null) {
 
     // Fungsi untuk load dan inject script
     function loadScript(pageKey, scriptPath, callbackName = null) {
-      // Periksa apakah skrip sudah dimuat untuk halaman yang sama
       const existingScript = document.querySelector(`script[data-page="${pageKey}"]`);
       if (existingScript) {
         existingScript.remove(); // Hapus skrip sebelumnya jika ada
       }
-
-      // Buat elemen script baru
       const script = document.createElement('script');
       script.src = scriptPath;
       script.dataset.page = pageKey;
-
-      // Setelah skrip dimuat, panggil callback jika ada
       script.onload = () => {
         if (callbackName && typeof window[callbackName] === "function") {
-          window[callbackName](); // Panggil fungsi callback jika ada
+          window[callbackName]();
         }
       };
-
-      // Tambahkan skrip ke halaman
       document.body.appendChild(script);
     }
 
