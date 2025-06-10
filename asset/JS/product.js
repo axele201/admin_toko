@@ -11,20 +11,14 @@ const nama_product = form.nama_product.value.trim();
   const file = fileInput.files[0];
   const allowedExtensions = ['jpg', 'jpeg', 'png', 'tif', 'tiff', 'bmp', 'svg', 'cr2', 'dng', 'pdf', 'psd', 'eps', 'ai'];
   const fileExtension = file.name.split('.').pop().toLowerCase();
-
-  // Validasi input kosong
   if (!nama_product || !variant || !harga) {
     alert("Semua field harus diisi.");
     return;
   }
-
-  // Validasi harga angka positif
   if (isNaN(harga) || Number(harga) <= 0) {
     alert("Harga harus berupa angka positif.");
     return;
   }
-
-  // Validasi gambar wajib (jika ingin)
   if (!file) {
     alert("Silakan pilih gambar.");
     return;
@@ -33,7 +27,6 @@ const nama_product = form.nama_product.value.trim();
     alert("Ekstensi file tidak diperbolehkan.");
     return;
   }
-
   const reader = new FileReader();
   reader.onload = async function () {
     const base64Image = reader.result.split(',')[1]; 
