@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Product</h2>
+  <!-- Tombol untuk membuka modal -->
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+    <i class="fas fa-plus"></i> Tambah Produk
+  </button>
+</div>
+
+
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form name="submit-to-google-sheet-product" id="productForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">
+            <i class="fas fa-file-invoice-dollar"></i> Form Pembelian
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <input class="form-control" name="nama_product" type="text" placeholder="Nama Produk" required>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" name="variant" type="text" placeholder="Varian Produk" required>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" name="harga" type="number" placeholder="Harga Produk" required>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" name="gambar" type="file" accept="image/*">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary d-flex align-items-center gap-2" id="submitBtn">
+            <span class="btn-text">Submit</span>
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Container Produk -->
+<div class="d-flex flex-column vh-80">
+    <div class="card flex-grow-1 overflow-auto m-3">
+        <div class="card-body">
+            <!-- Tempat produk akan ditampilkan -->
+            <div class="row g-4" id="productList">
+                <!-- Diisi lewat JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
