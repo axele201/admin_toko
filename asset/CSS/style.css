@@ -27,19 +27,16 @@ body, html {
 }
 
     /* product */
-    
-
-    /* Menambahkan jarak antara Dashboard dan ikon kanan di mobile */
     @media (max-width: 768px) {
       .navbar-brand {
-        font-size: 1rem; /* Menurunkan ukuran font pada layar kecil */
-        margin-right: 15px; /* Memberikan jarak dengan ikon */
+        font-size: 1rem;
+        margin-right: 15px;
       }
       .navbar-nav {
         margin-left: auto;
       }
       .navbar-nav .nav-link {
-        padding-right: 10px; /* Menambah jarak antar item navbar */
+        padding-right: 10px;
       }
       .d-flex {
         gap: 15px;
