@@ -1,12 +1,19 @@
+<!-- ADD PRODUCT -->
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h2 class="mb-0">Product</h2>
   <!-- Tombol untuk membuka modal -->
-  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
-    <i class="fas fa-plus"></i> Tambah Produk
-  </button>
+   <input type="text" id="searchInput" class="form-control w-50 me-2" placeholder="Cari nama produk...">
+   <div class="d-flex flex-column gap-2">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+      <i class="fas fa-plus"></i> Tambah Produk
+    </button>
+    <select id="filterKategori" class="form-select w-auto">
+      <option value="">Semua Kategori</option>
+    </select>
+   </div>
 </div>
 
-
+<!-- modal create product -->
 <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -24,6 +31,17 @@
           </div>
           <div class="mb-3">
             <input class="form-control" name="variant" type="text" placeholder="Varian Produk" required>
+          </div>
+          <div class="mb-3">
+            <label for="kategori" class="form-label">Kategori</label>
+            <select class="form-select" name="kategori" required>
+              <option value="">Pilih Kategori</option>
+              <option value="Minuman">Minuman</option>
+              <option value="Makanan">Makanan</option>
+              <option value="Elektronik">Elektronik</option>
+              <option value="Alat Rumah Tangga">Alat Rumah Tangga</option>
+              <!-- Kamu bebas nambah kategori -->
+            </select>
           </div>
           <div class="mb-3">
             <input class="form-control" name="harga" type="number" placeholder="Harga Produk" required>
@@ -46,6 +64,48 @@
     </div>
   </div>
 </div>
+<!-- modal edit product -->
+ <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="editForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Produk</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editId">
+          <div class="mb-3">
+            <label>Nama Produk</label>
+            <input type="text" class="form-control" id="editNamaProduct" required>
+          </div>
+          <div class="mb-3">
+            <label>Varian</label>
+            <input type="text" class="form-control" id="editVariant" required>
+          </div>
+          <div class="mb-3">
+            <label for="editKategori" class="form-label">Kategori</label>
+            <select class="form-select" id="editKategori" required>
+              <option value="">Pilih Kategori</option>
+              <option value="Minuman">Minuman</option>
+              <option value="Makanan">Makanan</option>
+              <option value="Elektronik">Elektronik</option>
+              <option value="Alat Rumah Tangga">Alat Rumah Tangga</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Harga</label>
+            <input type="number" class="form-control" id="editHarga" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 
@@ -59,3 +119,7 @@
         </div>
     </div>
 </div>
+
+<nav>
+  <ul class="pagination justify-content-center" id="paginationContainer"></ul>
+</nav>
