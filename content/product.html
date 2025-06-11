@@ -29,7 +29,9 @@
             <input class="form-control" name="harga" type="number" placeholder="Harga Produk" required>
           </div>
           <div class="mb-3">
-            <input class="form-control" name="gambar" type="file" accept="image/*">
+            <input class="form-control" name="gambar" type="file"
+                    accept=".jpg,.jpeg,.png,.tif,.tiff,.svg,.bmp,.cr2,.dng,.pdf,.psd,.eps,.ai"
+                    required>
           </div>
         </div>
 
@@ -51,9 +53,8 @@
 <div class="d-flex flex-column vh-80">
     <div class="card flex-grow-1 overflow-auto m-3">
         <div class="card-body">
-            <!-- Tempat produk akan ditampilkan -->
-            <div class="row g-4" id="productList">
-                <!-- Diisi lewat JavaScript -->
+            <div class="row g-4" id="produkContainer"">
+            
             </div>
         </div>
     </div>
