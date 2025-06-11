@@ -28,14 +28,14 @@ function loadPage(page, title = null) {
     function loadScript(pageKey, scriptPath, callbackName = null) {
       const existingScript = document.querySelector(`script[data-page="${pageKey}"]`);
       if (existingScript) {
-        existingScript.remove(); // Hapus skrip sebelumnya jika ada
+        existingScript.remove();
       }
       const script = document.createElement('script');
       script.src = scriptPath;
       script.dataset.page = pageKey;
       script.onload = () => {
         if (callbackName && typeof window[callbackName] === "function") {
-          window[callbackName]();
+          window[callbackName](); // Panggil fungsi callback jika ada
         }
       };
       document.body.appendChild(script);
@@ -43,7 +43,7 @@ function loadPage(page, title = null) {
 
     // Memuat skrip sesuai dengan halaman yang aktif
     if (page === '/content/product.html') {
-      loadScript('product', 'asset/JS/product.js', 'loadProductData');
+      loadScript('product', '/asset/JS/product.js', 'loadProductData');
     } else if (page === 'payments.html') {
       loadScript('payments', 'public/payments.js', 'loadPaymentData');
     } else if (page === 'statistics.html') {
